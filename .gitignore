@@ -1,0 +1,26 @@
+# Runtime output - logs, reports, generated credentials, state.
+# Output/Secrets holds temporary passwords and the DPAPI-protected DSRM
+# secret; none of it must ever reach a repository.
+Output/
+**/Output/
+*.log
+deployment-state.json
+*.corrupt-*
+
+# Credential handover files
+**/Secrets/
+*.cred.xml
+*.secret
+InitialUserPasswords*.csv
+DSRM-password*.csv
+
+# Validation output
+ValidationReport-*.csv
+ValidationReport-*.html
+
+# Archives and editor noise
+*.zip
+*.rar
+Thumbs.db
+desktop.ini
+.DS_Store

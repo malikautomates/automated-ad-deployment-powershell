@@ -1,0 +1,16 @@
+SamAccountName,GivenName,Surname,DisplayName,Description,Title,Department,Office,City,Province,Country,TargetOu,Groups,AccountExpiry
+jordan,Jordan,Castille,Jordan Castille,Founder and chief executive,Chief Executive Officer,Executive,Winnipeg HQ,Winnipeg,Manitoba,CA,Winnipeg,ROLE_AllStaff;ROLE_Executive;ROLE_Winnipeg,never
+malik,Muhammed,Abdulmalik,Muhammed Abdulmalik,Owns identity and infrastructure across all branches,IT Director,IT,Winnipeg HQ,Winnipeg,Manitoba,CA,Winnipeg,ROLE_AllStaff;ROLE_IT;ROLE_Winnipeg,never
+Sarah,Sarah,Michealson,Sarah Michealson,Heads people operations company-wide,HR Director,HR,Winnipeg HQ,Winnipeg,Manitoba,CA,Winnipeg,ROLE_AllStaff;ROLE_HR;ROLE_Winnipeg,never
+daniel,Daniel,Okafor,Daniel Okafor,Invoice processing and supplier payments,Accounts Payable Clerk,Finance,Winnipeg HQ,Winnipeg,Manitoba,CA,Winnipeg,ROLE_AllStaff;ROLE_Finance;ROLE_Winnipeg,never
+frank,Frank,Dugald,Frank Dugald,Fixed-term contract - review before renewal,Sales Associate,Sales,Winnipeg HQ,Winnipeg,Manitoba,CA,Winnipeg,ROLE_AllStaff;ROLE_Sales;ROLE_Winnipeg,2027-06-30
+keith,Keith,Albalos,Keith Albalos,Server and endpoint administration,Systems Administrator,IT,Vancouver Branch,Vancouver,British Columbia,CA,Vancouver,ROLE_AllStaff;ROLE_IT;ROLE_Vancouver,never
+priya,Priya,Raghunathan,Priya Raghunathan,Network design and inter-branch connectivity,Network Engineer,IT,Vancouver Branch,Vancouver,British Columbia,CA,Vancouver,ROLE_AllStaff;ROLE_IT;ROLE_Vancouver,never
+John,John,Ebuka,John Ebuka,Forecasting and management reporting,Financial Analyst,Finance,Vancouver Branch,Vancouver,British Columbia,CA,Vancouver,ROLE_AllStaff;ROLE_Finance;ROLE_Vancouver,never
+amara,Amara,Nwosu,Amara Nwosu,Campaigns and product marketing,Marketing Specialist,Marketing,Vancouver Branch,Vancouver,British Columbia,CA,Vancouver,ROLE_AllStaff;ROLE_Marketing;ROLE_Vancouver,never
+mei,Mei Lin,Chow,Mei Lin Chow,Enterprise accounts for the west coast,Account Executive,Sales,Vancouver Branch,Vancouver,British Columbia,CA,Vancouver,ROLE_AllStaff;ROLE_Sales;ROLE_Vancouver,never
+Banks,Samuel,Banks,Samuel Banks,Runs the finance function for the prairies,Finance Manager,Finance,Calgary Branch,Calgary,Alberta,CA,Calgary,ROLE_AllStaff;ROLE_Finance;ROLE_Calgary,never
+Grace,Grace,Richardson,Grace Richardson,Recruitment and employee relations,HR Generalist,HR,Calgary Branch,Calgary,Alberta,CA,Calgary,ROLE_AllStaff;ROLE_HR;ROLE_Calgary,never
+loatex,Wale,Adebimpe,Wale Adebimpe,New business across Alberta,Sales Representative,Sales,Calgary Branch,Calgary,Alberta,CA,Calgary,ROLE_AllStaff;ROLE_Sales;ROLE_Calgary,never
+tyler,Tyler,Brandt,Tyler Brandt,Scheduling logistics and facilities,Operations Coordinator,Operations,Calgary Branch,Calgary,Alberta,CA,Calgary,ROLE_AllStaff;ROLE_Operations;ROLE_Calgary,never
+Support,,,Vortex AI Support,Shared account behind the IT support queue - not a person,Service Account,IT,Winnipeg HQ,Winnipeg,Manitoba,CA,ServiceAccounts,ROLE_IT,never

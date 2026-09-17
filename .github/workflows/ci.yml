@@ -1,0 +1,58 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Lint, unit tests, design validation
+    runs-on: windows-latest
+    defaults:
+      run:
+        # Windows PowerShell 5.1 - the runtime the deployment targets on a
+        # freshly built server - not PowerShell 7.
+        shell: powershell
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Pester 5 and PSScriptAnalyzer
+        run: |
+          [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+          Install-Module Pester -RequiredVersion 5.7.1 -Scope CurrentUser -Force -SkipPublisherCheck
+          Install-Module PSScriptAnalyzer -RequiredVersion 1.25.0 -Scope CurrentUser -Force
+
+      - name: PSScriptAnalyzer
+        run: |
+          Import-Module PSScriptAnalyzer -RequiredVersion 1.25.0
+          $results = foreach ($path in 'Deployment', 'Onboarding') {
+              Invoke-ScriptAnalyzer -Path $path -Recurse -Settings .\PSScriptAnalyzerSettings.psd1
+          }
+          $results | Sort-Object Severity, ScriptName, Line |
+              Format-Table Severity, RuleName, ScriptName, Line -AutoSize | Out-String -Width 200
+          $errors = @($results | Where-Object Severity -eq 'Error')
+          Write-Host "Errors: $($errors.Count)   Warnings: $(@($results | Where-Object Severity -eq 'Warning').Count)"
+          if ($errors.Count -gt 0) { exit 1 }
+
+      - name: Pester unit tests
+        run: |
+          Import-Module Pester -RequiredVersion 5.7.1
+          $config = New-PesterConfiguration
+          $config.Run.Path = 'Deployment\Tests'
+          $config.Run.Exit = $true
+          $config.Output.Verbosity = 'Detailed'
+          Invoke-Pester -Configuration $config
+
+      - name: Offline design validation
+        run: |
+          .\Deployment\Scripts\Test-DeploymentDesign.ps1 -ReportFolder $env:RUNNER_TEMP
+          exit 0
+
+      - name: Lab screenshot references
+        run: .\scripts\Test-LabImages.ps1
